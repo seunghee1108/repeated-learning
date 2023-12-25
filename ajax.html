@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /**
+     * 서버 vs 클라이언트의 관계에서 요청과 응답을 하는 방법과 다르게 
+     * 클라이언트가 다른 서버에 요청을 보내고 응답을 받는 방법이 AJAX 기술 중 핵심이다.
+     * 내가 가동하지 않는 임의의 서버인 특정 주소 'http://pokeapi.co/api/v2/pokemon/'에 요청을 
+     * 보내고 응답을 받아서 처리하는 것이다.
+     * 
+     * 문서'가' 요청을 보내는 것
+     * 
+     * 따라서 상태코드도 동일하게 적용 된다.
+     * new XMLHttpRequest() 라는 인스턴스 안에는 각종 문서가 통신을 위해 필요한 
+     * 기능과 정보들이 담겨있다.
+     * 
+     */
+    const getPokemonAJAX = () => {
+      const xhr = new XMLHttpRequest();
+      console.dir("데이터 받기 전 조회 : " .xhr);
+      xhr.open("GET", "http://pokeapi.co/api/v2/pokemon/", true);
+      // 여기서 true는 비동기 요청을 의미한다.
+      // 비동기 요청을 하면 요청을 보낸 후 응답이 올 때까지 기다리지 않고 다음 코드를 실행한다.
+      // 따라서 응답이 올 때까지 기다렸다가 다음 코드를 실행하고 싶다면 false로 설정해야 한다.
+      // 하지만 비동기 요청을 하지 않으면 브라우저가 멈추기 때문에 권장하지 않는다.
+      // open 메서드에 세 번째 인수는 생략 가능하다. 생략하면 기본값으로 false가 설정된다. 
+      xhr.addEventListener('load', () => {
+        if(xhr.statㅎus === 200) {
+          console.log("데이터 받은 후 조회");
+          console.dir(xhr);
+        }
+      });
+    }
+    
+  </script>
+</body>
+</html>
