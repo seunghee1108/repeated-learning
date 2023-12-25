@@ -36,3 +36,4 @@ const handle = new Promise(function(resolve, reject) {
 // 7. 첫 번째 Promise가 완료되었으며, 두 번째 Promise의 2초 대기가 시작됩니다. 
 // 11. 두 번째 Promise가 완료되었으며, 세 번째 Promise의 1초 대기가 시작됩니다. 
 // 14. 모든 Promise가 순차적으로 완료되었습니다.
+
